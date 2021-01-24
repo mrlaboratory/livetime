@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live time </title>
+</head>
+<body>
+
+<h1 align="center"></h1>
+    
+    <script>
+setInterval(() => {
+
+    function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var second = date.getSeconds();
+  var strTime = hours + ':' + minutes + ':'+second+' '+ampm;
+  return strTime;
+}
+
+document.querySelector("h1").innerHTML=formatAMPM(new Date);
+    ;})
+    </script>
+</body>
+</html>
